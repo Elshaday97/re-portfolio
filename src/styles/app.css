@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	transition: 0.3s;
+	scroll-behavior: smooth !important;
+}
+
+.hollow {
+	color: transparent;
+	-webkit-text-stroke: 2px #177e89;
+	-webkit-font-smoothing: antialiased;
+}
+
+@media only screen and (max-width: 640px) {
+	.hollow {
+		
+		-webkit-text-stroke: 1px #177e89;
+		-webkit-font-smoothing: antialiased;
+	}
+}
+
+.blurred {
+	-webkit-backdrop-filter: blur(220px);
+	filter: blur(220px);
+}
+
+.hideScrollBar {
+	-ms-overflow-style: none;
+	scrollbar-width: none;
+}
+
+.hideScrollBar::-webkit-scrollbar {
+	display: none;
+}
+
+@layer base {
+	@font-face {
+		font-family: 'League Gothic';
+		src: local('League Gothic'), local('League-Gothic'), local('league gothic'),
+			local('league gothic'), url('/fonts/LeagueGothic/LeagueGothic-Regular.ttf');
+		font-weight: normal;
+	}
+
+	@font-face {
+		font-family: 'Raleway';
+		src: local('Raleway'), local('raleway'), url('/fonts/Raleway/Raleway-ExtraLight.ttf');
+		font-weight: 200;
+	}
+
+	@font-face {
+		font-family: 'Raleway';
+		src: local('Raleway'), local('raleway'), url('/fonts/Raleway/Raleway-Light.ttf');
+		font-weight: 300;
+	}
+
+	@font-face {
+		font-family: 'Raleway';
+		src: local('Raleway'), local('raleway'), url('/fonts/Raleway/Raleway-Regular.ttf');
+		font-weight: 400;
+	}
+
+	@font-face {
+		font-family: 'Raleway';
+		src: local('Raleway'), local('raleway'), url('/fonts/Raleway/Raleway-Medium.ttf');
+		font-weight: 500;
+	}
+
+	@font-face {
+		font-family: 'Raleway';
+		src: local('Raleway'), local('raleway'), url('/fonts/Raleway/Raleway-SemiBold.ttf');
+		font-weight: 600;
+	}
+
+	@font-face {
+		font-family: 'Raleway';
+		src: local('Raleway'), local('raleway'), url('/fonts/Raleway/Raleway-Bold.ttf');
+		font-weight: 700;
+	}
+}
