@@ -13,7 +13,7 @@ const getContents = async () => {
 	try {
 		const response: EntryCollection<any> = await contentfulClient.getEntries(PRIVATE_ENTRY_KEY);
 		if (response && response.items && response.items.length > 1) {
-			const content: IContent | undefined = response.items[0]?.fields;
+			const content: IContent | undefined = response.items[1]?.fields;
 			return content;
 		}
 	} catch (error) {
