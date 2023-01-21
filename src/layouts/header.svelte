@@ -22,7 +22,7 @@
 						</button></a
 					>
 				{:else}
-					<li class="font-heading text-xl text-white uppercase">
+					<li class="font-heading text-xl text-white tracking-wide uppercase">
 						<a href={navLink.href}>{navLink.label}</a>
 					</li>
 				{/if}

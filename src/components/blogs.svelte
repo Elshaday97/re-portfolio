@@ -1,9 +1,12 @@
-<script>
+<script lang="ts">
+	import type { ICardSectionFields } from '$lib/server/types';
 	import Card from '../components/card.svelte';
 
-	const SvelteImg = '/images/svelte.webp';
-	const ReactNativeImg = '/images/rn.webp';
-	const ReduxToolkitImg = '/images/rd.webp';
+	export let pageContent: ICardSectionFields;
+	const { fields: content } = pageContent;
+
+	const cardsCheck = content?.cards && content?.cards.length > 0;
+	const blogCards = cardsCheck && content.cards.map((item) => item.fields);
 </script>
 
 <section
@@ -14,39 +17,28 @@
 		<p
 			class="text-4xl sm:text-5xl md:text-6xl font-heading text-gray uppercase text-center md:text-left"
 		>
-			Blogs
+			{content?.title}
 		</p>
 		<p
 			class="text-base md:text-xl font-[300] mb-6 md:mb-8 text-left text-center md:text-left opacity-70"
 		>
-			ideas - research - creative writing
+			{content?.description}
 		</p>
 		<div class="flex flex-col items-center justify-center mt-3 sm:mt-5 w-[90%]">
-			<Card
-				cardImg={SvelteImg}
-				title="The framework-less framework - Svelte."
-				description="Svelte is a UI framework that helps us build reusable and self-contained components in plain HTML, CSS and JavaScript..."
-				stack="frontend tools"
-				link="https://medium.com/@elshaday/the-framework-less-framework-svelte-a02da670f7e5"
-				variant="horizontal"
-			/>
-			<Card
-				cardImg={ReduxToolkitImg}
-				title="Why you should switch to Redux Toolkit, Part I"
-				description="If you have been using Redux for managing your application’s state, you unfortunately know how much of a tiresome work it is to get it right..."
-				stack="frontend tools"
-				link="https://medium.com/@elshaday/why-you-should-switch-to-redux-toolkit-part-i-7f90e72a37b4"
-				variant="horizontal"
-			/>
-			<Card
-				cardImg={ReactNativeImg}
-				title="A deeper look into React Native and its architecture, Part I"
-				description="React Native is a framework that allows the development of robust cross platform applications using the popular JavaScript library, React..."
-				stack="frontend tools"
-				link="https://medium.com/@elshaday/a-deeper-look-into-react-native-and-its-architecture-part-i-71160596468e"
-				variant="horizontal"
-			/>
-			<div class="flex w-full items-start">
+			{#if blogCards}
+				{#each blogCards as blogCard}
+					<Card
+						cardImg={blogCard?.image?.fields?.file?.url || ''}
+						title={blogCard?.title}
+						description={blogCard?.description}
+						stack={blogCard?.subTitle}
+						link={blogCard?.link}
+						variant="horizontal"
+					/>
+				{/each}
+			{/if}
+
+			<div class="flex w-full justify-center sm:justify-start">
 				<a href="https://elshaday.medium.com/" target="_blank" rel="noopener noreferrer"
 					><button class="bg-primary font-heading text-xl text-white uppercase h-9 w-28">
 						View all

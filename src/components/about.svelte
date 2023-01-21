@@ -1,13 +1,17 @@
-<script>
+<script lang="ts">
+	import type { IAboutSectionFields } from '$lib/server/types';
 	import Socials from './socials.svelte';
 
-	const SubjectImg = '/images/subject.webp';
-	const SubjectIcon = '/icons/subject2.svg';
 	const DownloadIcon = '/icons/link.svg';
+
+	export let pageContent: IAboutSectionFields;
+	const { fields: content } = pageContent;
+	const SubjectImg = content?.mainImage.fields.file.url || '';
+	const Subject1Img = content?.secondImage.fields.file.url || '';
 </script>
 
 <div
-	class="absolute w-3/4 sm:w-[55%] h-[80%] sm:h-[60vh] top-0 right-0 bg-[#177E89] blurred -z-10"
+	class="absolute w-3/4 sm:w-[55%] h-[60%] sm:h-[60vh] top-0 right-0 bg-[#177E89] blurred -z-10"
 />
 
 <section class="flex justify-center  w-full" id="about">
@@ -26,25 +30,27 @@
 				<p
 					class="text-sm sm:text-base lg:text-xl text-white font-[500] sm:font-[600] uppercase text-center sm:text-left"
 				>
-					Hello, I'm Elshaday
+					{content?.introduction || ''}
 				</p>
 				<p
-					class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-heading hollow uppercase text-center sm:text-left"
+					class="text-6xl sm:text-6xl md:text-7xl lg:text-8xl font-heading hollow uppercase text-center sm:text-left"
 				>
-					Web Developer,
+					{content?.hollowTitle || ''}
 				</p>
 				<p
 					class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-heading text-white uppercase text-center sm:text-left"
 				>
-					UI/UX Designer, Creative Writer
+					{content?.normalTitle || ''}
 				</p>
 				<p
-					class="text-sm sm:text-base md:text-xl font-[200] mt-0 sm:mt-3 mb-6 md:mb-8 text-center sm:text-left"
+					class="text-base md:text-xl font-[300] mt-0 sm:mt-3 mb-6 md:mb-8 text-center sm:text-left"
 				>
-					A multi-versed software developer excited to embark on new projects!
+					{content?.mainDescription || ''}
 				</p>
 
-				<Socials />
+				{#if content?.socialMediaLinks}
+					<Socials socialMediaLinks={content?.socialMediaLinks} />
+				{/if}
 			</div>
 		</div>
 
@@ -53,22 +59,21 @@
 			class="relative flex justify-between items-baseline sm:items-end w-[90%] sm:w-[95%] md:w-[85%] lg:w-[80%] mt-8 md:mt-0 "
 		>
 			<div class="flex flex-col items-start w-full md:w-[65%] mt-4 md:mt-14">
-				<p class="text-4xl sm:text-5xl font-heading text-white sm:text-gray uppercase text-left">
-					About Me
+				<p class="text-4xl sm:text-5xl font-heading text-gray uppercase text-left">
+					{content?.secondTitle || ''}
 				</p>
-				<p class="text-base md:text-xl font-[200] mb-3 md:mb-4 text-left">
-					A little bit on my background
+				<p class="text-base md:text-xl font-[300] mb-3 md:mb-4 text-left">
+					{content?.secondSubtitle || ''}
 				</p>
-				<p class="text-base mb-6 md:mb-8 text-left font-[300]">
-					I'm a Software Engineering graduate focusing on web and mobile app development. I
-					specialize in technologies such as React and React Native, and love to design high quality
-					products with keen attention to user experience.
+				<p class="text-base mb-6 md:mb-8 text-left">
+					{content?.secondDescription || ''}
 				</p>
 				<a href="files/CV.pdf" target="_blank" rel="noopener noreferrer"
 					><button
 						class="flex items-center justify-center bg-primary font-heading text-xl text-white uppercase h-10 w-28"
 					>
-						<img class="mr-2" alt="icon" src={DownloadIcon} /> Resume
+						<img class="mr-2" alt="icon" src={DownloadIcon} />
+						{content?.buttonLabel || ''}
 					</button></a
 				>
 			</div>
@@ -76,7 +81,7 @@
 			<img
 				alt="subject"
 				class="hidden md:flex absolute w-[200px] md:right-0 lg:right-5 top-[130px] mr-[10px]"
-				src={SubjectIcon}
+				src={Subject1Img}
 			/>
 		</div>
 	</div>

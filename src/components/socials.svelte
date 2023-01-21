@@ -1,4 +1,6 @@
-<script>
+<script lang="ts">
+	import type { ISocials } from '$lib/server/types';
+
 	const LinkedIn = '/icons/linkedin.svg';
 	const Twitter = '/icons/twitter.svg';
 	const GitLab = '/icons/gitlab.svg';
@@ -6,30 +8,34 @@
 	const Medium = '/icons/medium.svg';
 
 	export let iconSize = 'regular';
+	export let socialMediaLinks: ISocials;
+
+	const { fields: links } = socialMediaLinks;
+
 	const socials = [
 		{
 			label: 'LinkedIn',
-			link: 'https://www.linkedin.com/in/elshaday-tesfaye-ab0a511b4/',
+			link: links?.linkedin || '',
 			img: LinkedIn
 		},
 		{
 			label: 'Twitter',
-			link: 'https://twitter.com/elshaday97/',
+			link: links?.twitter || '',
 			img: Twitter
 		},
 		{
 			label: 'GitLab',
-			link: 'https://gitlab.com/elshaday1/',
+			link: links?.gitLab || '',
 			img: GitLab
 		},
 		{
 			label: 'GitHub',
-			link: 'https://github.com/Elshaday97/',
+			link: links?.gitHub || '',
 			img: GitHub
 		},
 		{
 			label: 'Medium',
-			link: 'https://medium.com/@elshaday/',
+			link: links?.medium || '',
 			img: Medium
 		}
 	];

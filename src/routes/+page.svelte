@@ -1,8 +1,12 @@
-<script>
+<script lang="ts">
 	import About from '../components/about.svelte';
 	import Blogs from '../components/blogs.svelte';
 	import Projects from '../components/projects.svelte';
 	import Specialities from '../components/specialities.svelte';
+	import type { IPageData } from './types';
+
+	export let data: IPageData;
+	const { content } = data;
 </script>
 
 <svelte:head>
@@ -12,7 +16,11 @@
 	<meta property="og:title" content="Elshaday Tesfaye" />
 </svelte:head>
 
-<About />
-<Specialities />
-<Projects />
-<Blogs />
+{#if content}
+	<About pageContent={content.about} />
+	<Specialities />
+	<Projects pageContent={content.projects} />
+	<Blogs pageContent={content.blogs} />
+{:else}
+	<p>Not found component</p>
+{/if}
