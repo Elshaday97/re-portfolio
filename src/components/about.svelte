@@ -5,7 +5,7 @@
 	const DownloadIcon = '/icons/link.svg';
 
 	export let pageContent: IAboutSectionFields;
-	const { fields: content } = pageContent;
+	const content = pageContent?.fields;
 	const SubjectImg = content?.mainImage.fields.file.url || '';
 	const Subject1Img = content?.secondImage.fields.file.url || '';
 </script>
