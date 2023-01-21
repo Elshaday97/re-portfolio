@@ -4,7 +4,7 @@
 	const ArrowIcon = '/icons/arrow-colored.svg';
 
 	export let pageContent: ICardSectionFields;
-	const { fields: content } = pageContent;
+	const content = pageContent?.fields;
 
 	const cardsCheck = content?.cards && content?.cards.length > 0;
 	const projectCards = cardsCheck && content.cards.map((item) => item.fields);
@@ -37,7 +37,7 @@
 							description={projectCard?.description}
 							role={projectCard?.identifier}
 							stack={projectCard?.subTitle}
-							link={projectCard?.link}
+							link={projectCard?.link || ''}
 						/>
 					{/each}
 				{/if}

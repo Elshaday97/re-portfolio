@@ -3,7 +3,7 @@
 	import Card from '../components/card.svelte';
 
 	export let pageContent: ICardSectionFields;
-	const { fields: content } = pageContent;
+	const content = pageContent?.fields;
 
 	const cardsCheck = content?.cards && content?.cards.length > 0;
 	const blogCards = cardsCheck && content.cards.map((item) => item.fields);
