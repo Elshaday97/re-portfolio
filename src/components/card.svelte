@@ -18,10 +18,10 @@
 				<p class="font-heading text-primary text-3xl">{title}</p>
 				<p class="font-[200] text-secondary text-xs text-right">{stack}</p>
 			</div>
-			<p class="mt-1 font-[300] text-sm opacity-70">{description}</p>
+			<p class="mt-1 text-sm opacity-70">{description}</p>
 			<p class="mt-3 sm:mt-5 text-primary font-[500] text-xs">Role: {role}</p>
 			<a
-				class="text-xs underline opacity-60 font-[200]"
+				class="text-xs underline opacity-80 font-[200]"
 				href={link}
 				target="_blank"
 				rel="noopener noreferrer">Visit Website</a
@@ -42,7 +42,7 @@
 				<p class="font-heading text-primary text-3xl text-center md:text-left">{title}</p>
 				<p class="font-[200] text-secondary text-xs text-right">{stack}</p>
 			</div>
-			<p class="mt-3 font-[300] text-sm sm:text-base opacity-80 mb-3 text-center md:text-left">
+			<p class="mt-3 text-sm sm:text-base opacity-80 mb-3 text-center md:text-left">
 				{description}
 			</p>
 			<a
