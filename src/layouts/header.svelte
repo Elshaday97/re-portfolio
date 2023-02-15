@@ -2,7 +2,7 @@
 	const navLinks = [
 		{ label: 'About', href: '#about' },
 		{ label: 'Specialities', href: '#specialities' },
-		{ label: 'Projects', href: '#projects' },
+		{ label: 'Projects', href: '' },
 		{ label: 'Blogs', href: '#blogs' },
 		{ label: 'Contact Me', href: 'mailto: yirga.elshaday@gmail.com', type: 'button' }
 	];
