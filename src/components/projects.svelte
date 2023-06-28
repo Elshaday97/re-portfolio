@@ -27,7 +27,7 @@
 		<div class="relative flex items-center justify-center w-full h-full">
 			<div
 				id="cardWrapper"
-				class="flex flex-col md:flex-row items-center justify-center md:justify-between mt-3 sm:mt-5 w-full md:overflow-x-auto py-2 hideScrollBar"
+				class="flex flex-col md:flex-row items-center justify-center  mt-3 sm:mt-5 w-full md:overflow-x-auto py-2 hideScrollBar"
 			>
 				{#if projectCards}
 					{#each projectCards as projectCard}

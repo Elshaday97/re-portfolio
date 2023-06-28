@@ -19,7 +19,7 @@
 {#if content}
 	<About pageContent={content.about} />
 	<Specialities />
-	<!-- <Projects pageContent={content.projects} /> -->
+	<Projects pageContent={content.projects} />
 	<Blogs pageContent={content.blogs} />
 {:else}
 	<p>Not found component</p>
