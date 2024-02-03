@@ -41,7 +41,7 @@
 			>.
 		</p>
 		<p class="hidden sm:flex text-[10px] lg:text-xs text-white opacity-70 text-center mt-2">
-			2023 © Elshaday Yirga Tesfaye
+			2024 © Elshaday Yirga Tesfaye
 		</p>
 	</div>
 </section>
