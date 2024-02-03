@@ -14,7 +14,7 @@
 	class="flex justify-center mt-[30px] mt-[50px] md:mt-[80px] lg:mt-[100px] w-full"
 	id="projects"
 >
-	<div class="flex flex-col items:center md:items-end w-[90%]">
+	<div class="flex flex-col items-center w-[90%]">
 		<p
 			class="text-4xl sm:text-5xl md:text-6xl font-heading text-gray uppercase text-center md:text-right"
 		>
